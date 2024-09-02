@@ -1,0 +1,44 @@
+group 'com.bytedance.rangers_applog_flutter_plugin'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven{
+            url 'https://artifact.bytedance.com/repository/Volcengine/'
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven{
+            url 'https://artifact.bytedance.com/repository/Volcengine/'
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 16
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    compileOnly 'com.bytedance.applog:RangersAppLog-Lite-global:6.16.9'
+}
