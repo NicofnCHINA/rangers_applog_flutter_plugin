@@ -81,7 +81,7 @@ static inline id setNSNullToNil(id value, Class target){
         config.abEnable = [enableAB boolValue];
         config.showDebugLog = [enableDebugLog boolValue];
         config.devToolsEnabled = [enableDebugLog boolValue];
-        config.serviceVendor = BDAutoTrackServiceVendor.SG;
+        config.serviceVendor = BDAutoTrackServiceVendorSG;
 #if DEBUG
         config.showDebugLog = YES;
         config.logger = ^(NSString * log) {
