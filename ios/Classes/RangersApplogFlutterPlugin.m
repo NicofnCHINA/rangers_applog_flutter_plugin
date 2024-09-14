@@ -7,7 +7,6 @@
 
 #import "RangersApplogFlutterPlugin.h"
 #import <RangersAppLog/RangersAppLog.h>
-#import <RangersAppLog/BDAutoTrackDevTools.h>
 
 static inline id setNSNullToNil(id value, Class target){
     if (value == NSNull.null) {
