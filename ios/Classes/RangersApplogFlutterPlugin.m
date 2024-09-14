@@ -80,7 +80,6 @@ static inline id setNSNullToNil(id value, Class target){
         config.logNeedEncrypt = [enableEncrypt boolValue];
         config.abEnable = [enableAB boolValue];
         config.showDebugLog = [enableDebugLog boolValue];
-        config.devToolsEnabled = [enableDebugLog boolValue];
         config.serviceVendor = BDAutoTrackServiceVendorSG;
 #if DEBUG
         config.showDebugLog = YES;
@@ -94,7 +93,6 @@ static inline id setNSNullToNil(id value, Class target){
             }];
         }
         [BDAutoTrack startTrackWithConfig:config];
-        [BDAutoTrackDevTools showFloatingEntryButton];
         result(nil);
     }
     else if ([methodName isEqualToString:@"onEventV3"]) {
