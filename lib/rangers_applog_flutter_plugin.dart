@@ -5,13 +5,13 @@ import 'package:flutter/services.dart';
 import 'data_observer_manager.dart';
 
 class RangersApplogFlutterPlugin {
-
   static const MethodChannel _channel =
       const MethodChannel('rangers_applog_flutter_plugin');
 
-/* 提示：可以到[Rangers官网](https://datarangers.com.cn/)查看更详细的文档 
+/* 提示：可以到[Rangers官网](https://datarangers.com.cn/)查看更详细的文档
  * Note: Refer to more detailed docs at https://datarangers.com/
 */
+
   /// Init SDK，expected to be called as early as possible.
   /// Note: You can also choose to init SDK in native side (say, using Java or Objective-C). If so, this method is not expected to be called.
   /// @param appid  String AppID of Rangers.
@@ -20,7 +20,7 @@ class RangersApplogFlutterPlugin {
   /// Usage：(replace 123456 with your appid)
   /// RangersApplogFlutterPlugin.initRangersAppLog('123456','test_channel', true, true, false, null);
   static void initRangersAppLog(String appid, String channel, bool enableAb,
-      bool enableEncrypt, bool enableLog, String? host) {
+      bool enableEncrypt, bool enableLog, String? host, bool? showDevTools) {
     assert(appid.isNotEmpty);
     assert(channel.isNotEmpty);
     _channel.invokeMethod('initRangersAppLog', {
@@ -29,7 +29,8 @@ class RangersApplogFlutterPlugin {
       "enable_ab": enableAb,
       "enable_encrypt": enableEncrypt,
       "enable_log": enableLog,
-      "host": host
+      "host": host,
+      "show_dev_tools": showDevTools
     });
 
     DataObserverManager.init();
@@ -44,6 +45,7 @@ class RangersApplogFlutterPlugin {
   }
 
   /* AB Test */
+
   /// get ab_sdk_version
   /// @returns ab_sdk_version
   /// Usage：
@@ -82,6 +84,7 @@ class RangersApplogFlutterPlugin {
   }
 
   /* Login and Logout */
+
   /// set user_unique_id
   /// @param userUniqueID String Pass the userID you want to log in. Pass `null` to log out.
   /// Usage：
@@ -91,6 +94,7 @@ class RangersApplogFlutterPlugin {
   }
 
   /* Custom Header */
+
   /// custom header info
   /// @param params Map<String, dynamic> header信息.
   /// Usage：
